@@ -28,6 +28,8 @@ install_dependencies() {
         sudo pacman -Sy --noconfirm "$1"
     elif command_exists brew; then
         brew update && brew install "$1"
+    elif command_exists pkg_add; then
+      sudo pkg_add python unzip
     else
         echo "Unsupported package manager. Please install $1 manually."
         exit 1
